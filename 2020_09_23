@@ -44,7 +44,7 @@ if($user1 -eq $user -and $pass -eq $pass2)
 "Usuario correcto"
 ## Preguntar por la web que vamos a comprobar si es igual
 
-```
+´´´
     $hash=(Get-FileHash C:\Users\keipo\Desktop\fichero.txt).hash
     $hash2=(Get-FileHash C:\Users\keipo\Desktop\fichero2.txt).hash
     if($hash -eq $hash2)
@@ -62,5 +62,4 @@ else
     ## Mostrar mensaje si el login es incorrecto
      "No es correcto"
 }
-
-```
+´´´
