@@ -1,0 +1,66 @@
+# Adopción de pautas de seguridad informática
+- Visión global de la seguridad informática. 
+  - https://www.jesusninoc.com/01/10/curso-de-hacking-con-powershell/
+  - https://github.com/jesusninoc/ClasesSeguridad/blob/master/2017-09-26.md
+  - https://www.jesusninoc.com/02/28/seguridad-informatica-con-powershell/#Introduccion
+
+----------------
+----------------
+
+# Adopción de pautas de seguridad informática
+- Fiabilidad, confidencialidad, integridad y disponibilidad. 
+  - https://github.com/jesusninoc/ClasesSeguridad/blob/master/2017-10-02.md
+  - https://www.jesusninoc.com/02/28/seguridad-informatica-con-powershell/#Introduccion
+
+----------------
+
+# Comprimir y cifrar
+- Primero se comprime y luego se cifra (Teoría de la información y la entropía)
+- Si cifras y comprimes el algorimo no funciona bien
+- Ataques para descifrar comunicaciones o parte de ellas sin conocer la clave, porque antes la información ha sido comprimida
+https://es.wikipedia.org/wiki/BREACH_(ataque)
+
+# Hacer un login y comprobar que una página web está disponible
+* https://github.com/jesusninoc/ExamenSAD11-12-2019/blob/master/ExamenSAD11-12-2019
+
+
+---------------------------------------------------------------------------------------------------------------
+
+# LOGIN Y COMPROBAR HASH DE DOS ARCHIVOC
+[Reflection.Assembly]::LoadWithPartialName("System.Web")
+$user = "Admin"
+$pass = [System.Web.Security.FormsAuthentication]::HashPasswordForStoringInConfigFile("1234", "SHA1")
+ 
+## Pedir al usuario user y password
+ 
+$user1 = Read-Host "nombre usuario"
+$pass1 = Read-Host "password usuario"
+ 
+$pass2 = [System.Web.Security.FormsAuthentication]::HashPasswordForStoringInConfigFile($pass1, "SHA1")
+
+ 
+if($user1 -eq $user -and $pass -eq $pass2)
+{
+"Usuario correcto"
+## Preguntar por la web que vamos a comprobar si es igual
+
+```
+    $hash=(Get-FileHash C:\Users\keipo\Desktop\fichero.txt).hash
+    $hash2=(Get-FileHash C:\Users\keipo\Desktop\fichero2.txt).hash
+    if($hash -eq $hash2)
+        {
+            Write-Host "Archivo correcto"
+        }
+    else
+    {
+            Write-Host "Archivo cambiado"
+    }
+
+}
+else
+{
+    ## Mostrar mensaje si el login es incorrecto
+     "No es correcto"
+}
+
+```
